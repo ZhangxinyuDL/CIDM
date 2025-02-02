@@ -17,11 +17,11 @@ def draw(data, path):
     # 加载地图
     # map_B = Basemap(projection='cyl', llcrnrlon=000, llcrnrlat=000, urcrnrlon=000, urcrnrlat=000,
     #                 resolution='l')
-    # map_B.readshapefile(r"/media/data8T/lmq/test/ChinaMap/Province_Beijing", 'Province_Beijing', drawbounds=True,default_encoding='iso-8859-15')
+    # map_B.readshapefile(r"", 'Province, drawbounds=True,default_encoding='iso-0000-00')
     # 画经纬度网格线
-    # parallels = np.arange(38.5, 90., 0.5)
+    # parallels = np.arange(00, 00, 0.5)
     # map_B.drawparallels(parallels, labels=[1, 0, 0, 0], fontsize=10)
-    # meridians = np.arange(117., 130., 0.5)
+    # meridians = np.arange(00., 00., 0.5)
     # map_B.drawmeridians(meridians, labels=[0, 0, 0, 1], fontsize=10)
     im = ax.imshow(data, cmap=my_map, norm=norm, origin='lower')
   
