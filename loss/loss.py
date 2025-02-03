@@ -30,8 +30,6 @@ def cosine_beta_schedule(timesteps, s=0.008):
     return torch.clip(betas, 0, 0.999)
 
 
-
-
 class GaussianDiffusion:
     def __init__(
         self,
@@ -81,47 +79,11 @@ class GaussianDiffusion:
         return sqrt_alphas_cumprod_t * x_start + sqrt_one_minus_alphas_cumprod_t * noise
 
   
-    def predict_start_from_noise(self, x_t, t, noise):
-        return (
-                self._extract(self.sqrt_recip_alphas_cumprod, t, x_t.shape) * x_t -
-                self._extract(self.sqrt_recipm1_alphas_cumprod, t, x_t.shape) * noise
-        )
-
-    @torch.no_grad()
-    def p_sample(self, model, x, t,index):
-        betas_t=self._extract(self.betas,t,x.shape)
-        sqrt_one_minus_alphas_cumprod_t =self._extract(self.sqrt_one_minus_alphas_cumprod,t,x.shape)
-        sqrt_recip_alphas_t=self._extract(self.sqrt_recip_alphas,t,x.shape)
-        x_in=x
-        model_mean=sqrt_recip_alphas_t*(x-betas_t*model(x_in,t)/sqrt_one_minus_alphas_cumprod_t)
-
-        if index==0:
-            return model_mean
-        else:
-            posterior_variance_t=self._extract(self.posterior_variance,t,x.shape)
-            noise=torch.randn_like(x)
-            return model_mean + torch.sqrt(posterior_variance_t)*noise
-
-
-    @torch.no_grad()
-    def p_sample_loop(self, model,shape):
-        # denoise: reverse diffusion
-        batch_size = shape[0]
-   
-        device = 'cuda'
-        # start from pure noise (for each example in the batch)
-        img = torch.randn(shape, device=device)  
-        imgs = []
-        for i in tqdm(reversed(range(0, self.timesteps)), desc='sampling loop time step', total=self.timesteps):
-            img = self.p_sample(model,img, torch.full((batch_size,), i, device=device, dtype=torch.long),i)
-            imgs.append(img.cpu().numpy())
-        return imgs
-
-    @torch.no_grad()
-    def sample(self, model, x_pred,image_size, batch_size=8, channels=1):
-        # sample new images   
-        return self.p_sample_loop(model, x_pred,shape=(batch_size, channels, image_size, image_size))
-
+    # def predict_start_from_noise(self, x_t, t, noise):
+    #     return (
+    #             self._extract(self.sqrt_recip_alphas_cumprod, t, x_t.shape) * x_t -
+    #             self._extract(self.sqrt_recipm1_alphas_cumprod, t, x_t.shape) * noise
+    #     )
 
 # --------------------------------------------Loss--------------------------------------------
 
