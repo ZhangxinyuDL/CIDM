@@ -70,7 +70,7 @@ class GaussianDiffusion:
         return out
 
 
-    def q_sample(self, x_start, t, noise=None):# 采样p过程x_t
+    def q_sample(self, x_start, t, noise=None):# samplex_t
         # forward diffusion (using the nice property): q(x_t | x_0)
         if noise is None:
             noise = torch.randn_like(x_start)
