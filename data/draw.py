@@ -14,11 +14,11 @@ def draw(data, path):
     norm = colors.BoundaryNorm(clevs, len(clevs) - 1)
     fig = plt.figure()
     ax = plt.gca()
-    # 加载地图
+    
     # map_B = Basemap(projection='cyl', llcrnrlon=000, llcrnrlat=000, urcrnrlon=000, urcrnrlat=000,
     #                 resolution='l')
     # map_B.readshapefile(r"", 'Province, drawbounds=True,default_encoding='iso-0000-00')
-    # 画经纬度网格线
+    
     # parallels = np.arange(00, 00, 0.5)
     # map_B.drawparallels(parallels, labels=[1, 0, 0, 0], fontsize=10)
     # meridians = np.arange(00., 00., 0.5)
