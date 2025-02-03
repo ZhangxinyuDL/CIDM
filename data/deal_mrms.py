@@ -23,7 +23,7 @@ def deal():
             # 解压
             g_file = gzip.GzipFile(src + files[i])
             # g_file = gzip.GzipFile(".grib2.gz")
-            data = open(gz + files[i].replace(".gz", ""), "wb+") # 解压缩路径
+            data = open(gz + files[i].replace(".gz", ""), "wb+")
             data.write(g_file.read())
             g_file.close()
             data.close()
@@ -35,7 +35,7 @@ def deal():
             continue
             # sys.exit()
 
-        # 打开pygrib文件
+        # pygrib open
         data = pygrib.open(gz + files[i].replace(".gz", ""))
 
         obj = tar + files[i][18:33] + ".hd5"
@@ -44,7 +44,7 @@ def deal():
         f.close()
         data.close()
 
-        # 删除正常解压缩后的文件
+        # delete
         os.remove(gz + files[i].replace(".gz", ""))
         print(obj + "  -------  " + str(i))
 
