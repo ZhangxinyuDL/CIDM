@@ -26,7 +26,7 @@ class IpaintDataset(Dataset):
 #     import os
 #     import numpy as np
 
-#     folder_path = 'data'  # 替换为包含NumPy文件的文件夹路径
+#     folder_path = 'data'  
 #     file_paths = []
 
 #     for file_name in os.listdir(folder_path):
