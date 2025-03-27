@@ -2,7 +2,7 @@
 
 This code is for paper 
 
-Zhang, Wei, Xinyu Zhang, Junyu Dong, Xiaojiang Song, and Renbo Pang. "CIDM: A comprehensive inpainting diffusion model for missing weather radar data with knowledge guidance." ISPRS Journal of Photogrammetry and Remote Sensing 221 (2025): 299-309.
+Wei Zhang, Xinyu Zhang, Junyu Dong, Xiaojiang Song, and Renbo Pang. "CIDM: A comprehensive inpainting diffusion model for missing weather radar data with knowledge guidance." ISPRS Journal of Photogrammetry and Remote Sensing 221 (2025): 299-309.
 
 https://doi.org/10.1016/j.isprsjprs.2025.02.001
 
