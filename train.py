@@ -72,7 +72,7 @@ def train_one_epoch(model, dataloader, optimizer, diffusion, device, epoch, glob
             logging.info(f"Epoch {epoch}, Step {step}/{len(dataloader)}, Loss: {avg_loss:.4f}")
     return total_loss / len(dataloader), global_step
 
-# 可视化函数
+
 def visualize_diffusion(model, diffusion, images, epoch, output_dir):
     t = torch.randint(0, config['time_steps'], (1,), device=device).long()
     x_t = diffusion.q_sample(images, t)
@@ -83,7 +83,7 @@ def visualize_diffusion(model, diffusion, images, epoch, output_dir):
     draw(images, os.path.join(output_dir, f'{epoch}_truth.png'))
     draw(x0, os.path.join(output_dir, f'{epoch}_pred_x0.png'))
 
-# 保存模型
+
 def save_model(model, epoch, output_dir):
     model_path = os.path.join(output_dir, f"model_epoch_{epoch}.pth")
     torch.save(model.state_dict(), model_path)
@@ -101,7 +101,7 @@ def train_model():
 
 if __name__ == "__main__":
     train_model()
-    # 示例配置文件内容
+    
     example_config = {
         'device': 'cuda' if torch.cuda.is_available() else 'cpu',
         'train_data_path': '/path/to/train/data',
@@ -124,7 +124,7 @@ if __name__ == "__main__":
         }
     }
 
-    # 将示例配置保存为 YAML 文件
+    
     with open('diffusion_config.yaml', 'w') as f:
         yaml.dump(example_config, f)
     logging.info("Diffusion configuration saved to 'diffusion_config.yaml'")
