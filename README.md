@@ -2,18 +2,9 @@
 
 This code is for paper 
 
-@article{zhang2025cidm,
-  title={CIDM: A comprehensive inpainting diffusion model for missing weather radar data with knowledge guidance},
-  author={Zhang, Wei and Zhang, Xinyu and Dong, Junyu and Song, Xiaojiang and Pang, Renbo},
-  journal={ISPRS Journal of Photogrammetry and Remote Sensing},
-  volume={221},
-  pages={299--309},
-  year={2025},
-  publisher={Elsevier}
+Zhang, Wei, Xinyu Zhang, Junyu Dong, Xiaojiang Song, and Renbo Pang. "CIDM: A comprehensive inpainting diffusion model for missing weather radar data with knowledge guidance." ISPRS Journal of Photogrammetry and Remote Sensing 221 (2025): 299-309.
 
-}
-  https://doi.org/10.1016/j.isprsjprs.2025.02.001
-
+https://doi.org/10.1016/j.isprsjprs.2025.02.001
 
 
 ## Dataset
